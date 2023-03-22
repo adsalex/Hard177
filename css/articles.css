@@ -1,0 +1,224 @@
+@charset "UTF-8";
+@media (min-width: 600px) {
+  main {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  nav {
+    flex: 3;
+    width: 100%;
+    height: 52vh;
+    background-color: rgb(12, 126, 120);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .content {
+    flex: 7;
+  }
+  nav {
+    position: sticky;
+    top: 10vh;
+  }
+}
+@media (max-width: 600px) or (orientation: portrait) {
+  nav {
+    position: sticky;
+    top: 10vh;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  nav {
+    width: 100%;
+    height: 50vh;
+    background-color: rgb(12, 126, 120);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
+* {
+  margin: 0;
+}
+
+header {
+  width: 100vw;
+  height: 10vh;
+  background-color: rgb(32, 178, 170);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+header * {
+  height: 100%;
+}
+header div:first-of-type {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+}
+header div:first-of-type > img {
+  margin-left: 2em;
+}
+header div:last-of-type {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+header div:last-of-type > img {
+  margin-right: 2em;
+}
+
+img {
+  height: 100%;
+}
+
+main > * {
+  margin-top: 3vh;
+}
+
+nav > a {
+  display: block;
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+#main_page_button {
+  justify-self: flex-start;
+}
+
+nav {
+  display: none;
+}
+
+footer {
+  width: 100%;
+  min-height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 1%;
+  background-color: lightgray;
+  margin-top: 1%;
+}
+footer div {
+  margin: 0 1% 0 1%;
+  height: 100%;
+}
+
+footer li {
+  list-style: none;
+}
+
+footer li[class] {
+  text-indent: 1.2em;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position: 0 center;
+}
+
+.github {
+  background-image: url("../resources/github.png");
+}
+
+.facebook {
+  background-image: url("../resources/Facebook_Black.png");
+}
+
+.telegram {
+  background-image: url("../resources/telegram-black.png");
+}
+
+.vk {
+  background-image: url("../resources/vk-black.png");
+}
+
+.youtube {
+  background-image: url("../resources/youtube-black.png");
+}
+
+.hide_but {
+  color: green;
+}
+
+article > img, article > figure {
+  float: left;
+  margin: 0.5em 1em 0.5em 0.5em;
+}
+
+figcaption {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:visited, a:active, a:link {
+  color: black;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.content {
+  padding: 1.4em;
+}
+
+/*articles only*/
+.content { /*Компенсатор нестрогой вложенности*/ }
+.content article img, .content article figure {
+  float: left;
+  margin: 0.5em 1em 0.5em 0.5em;
+}
+.content figure img {
+  margin: 0;
+  width: 25vh;
+}
+.content figcaption {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.content article p {
+  margin: 10px 0 10px 0;
+}
+.content h1 {
+  font-size: 35px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.content article h2 {
+  font-size: 27px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.content article h3 {
+  font-size: 22px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+.content article {
+  margin: 1% 0.25% 1% 0.25%;
+  overflow: hidden;
+  text-align: justify;
+  max-height: 20vh;
+}
+
+/*9.5em*/
+/*articles only ends*/
