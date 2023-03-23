@@ -19,7 +19,7 @@ navig_sel.addEventListener("mouseout",nav_up)
 }
 anc_color=mynav[0].children[0].style.color;;
 ////////////////////////
-
+if(page_name=="articles.html"){
 var articles= document.getElementsByTagName("article")
 const MAX_HEIGHT = articles[0].style.maxHeight
 for(let art of articles)
@@ -32,7 +32,8 @@ hiders=document.getElementsByClassName('hide_but')
 //hiders[0].style.color="red"
 for(let hider of hiders)
 {hider.addEventListener("mousedown",show_hide_art)}
-
+//}
+/////////
 function show_hide_art(handler){
    let show_hide_st = articles[Array.from(hiders).indexOf(handler.target)].style
    
@@ -41,6 +42,7 @@ function show_hide_art(handler){
 
    //даже если объявить сразу как массив
    //все равно нужно преобразование
+}
 }
 //////////////////////////
 function nav_down(handler)

@@ -1,6 +1,6 @@
 $main_color:rgb(32, 178, 170);
 $second_color:rgb(12, 126, 120);
-@media (min-width:600px)
+@media (min-width:600px) and (orientation:landscape)
 {
     main{display: flex;flex-direction: row-reverse;}
     nav{flex: 3;width: 100%;height: 52vh;background-color: rgb(12, 126, 120);display: flex;flex-direction: column;justify-content: space-evenly ;}
@@ -8,18 +8,18 @@ $second_color:rgb(12, 126, 120);
    
     nav{position: sticky;top: 10vh;}
 }
-@media (max-width:600px) or (orientation:portrait)
+@media (max-width:600px),(orientation:portrait)
 {
     nav{position: sticky;top: 10vh;}
     main{display: flex;flex-direction: column;}
    
-    nav{width: 100%;height: 50vh;background-color: rgb(12, 126, 120);display: flex;flex-direction: column;justify-content: space-evenly ; ;}
-
+    nav{width: 100%;height: 60vh;background-color: rgb(12, 126, 120);display: flex;flex-direction: column;justify-content: space-evenly ; ;}
+    nav>a{font-size: 3rem;padding: 1rem;}
 }
 
 *{margin: 0}
 header{
-    width: 100vw;height: 10vh;
+    width: 100%;height: 10vh;
     background-color: $main_color;display: flex;
     justify-content: center;
     position: sticky;

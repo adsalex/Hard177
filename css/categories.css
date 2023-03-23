@@ -1,5 +1,4 @@
-@charset "UTF-8";
-@media (min-width: 600px) {
+@media (min-width: 600px) and (orientation: landscape) {
   main {
     display: flex;
     flex-direction: row-reverse;
@@ -21,7 +20,7 @@
     top: 10vh;
   }
 }
-@media (max-width: 600px) or (orientation: portrait) {
+@media (max-width: 600px), (orientation: portrait) {
   nav {
     position: sticky;
     top: 10vh;
@@ -32,11 +31,15 @@
   }
   nav {
     width: 100%;
-    height: 50vh;
+    height: 60vh;
     background-color: rgb(12, 126, 120);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+  }
+  nav > a {
+    font-size: 3rem;
+    padding: 1rem;
   }
 }
 * {
@@ -44,7 +47,7 @@
 }
 
 header {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   background-color: rgb(32, 178, 170);
   display: flex;
@@ -171,53 +174,32 @@ main {
 }
 
 .content {
-  padding: 1.4em;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-/*articles only*/
-.content { /*Компенсатор нестрогой вложенности*/ }
-.content article img, .content article figure {
-  float: left;
-  margin: 0.5em 1em 0.5em 0.5em;
+/*categories only*/
+figure > * {
+  display: block;
 }
-.content figure img {
-  margin: 0;
-  width: 25vh;
+
+figure {
+  width: 48%;
+  display: block;
+  margin: 1%;
 }
-.content figcaption {
+
+figure img {
+  max-width: 45vw;
+  height: 45vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-}
-.content article p {
-  margin: 10px 0 10px 0;
-}
-.content h1 {
-  font-size: 35px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.content article h2 {
-  font-size: 27px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-.content article h3 {
-  font-size: 22px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-.content article {
-  margin: 1% 0.25% 1% 0.25%;
-  overflow: hidden;
-  text-align: justify;
-  max-height: 20vh;
+  font-size: 26px;
 }
 
 /*9.5em*/
