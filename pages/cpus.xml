@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<catalog>
+<good>
+    <goodname>cpus</goodname>
+    <photo>../resources/burger.svg</photo>
+    <description>lorem</description>
+    <price>234.33</price>
+    <articul>2344444</articul>
+</good>
+<good>
+    <goodname>laptops</goodname>
+    <photo>../resources/cart.svg</photo>
+    <description>blah blah 1</description>
+    <price>234.33</price>
+    <articul>blah blah 1</articul>
+</good>
+<good>
+    <goodname>laptops</goodname>
+    <photo>../resources/burger.svg</photo>
+    <description>blah blah 1</description>
+    <price>234.33</price>
+    <articul>blah blah 1</articul>
+</good>
+</catalog>
