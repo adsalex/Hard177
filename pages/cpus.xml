@@ -11,14 +11,14 @@
     <goodname>laptops</goodname>
     <photo>../resources/cart.svg</photo>
     <description>blah blah 1</description>
-    <price>234.33</price>
+    <price>444.33</price>
     <articul>blah blah 1</articul>
 </good>
 <good>
     <goodname>laptops</goodname>
     <photo>../resources/burger.svg</photo>
     <description>blah blah 1</description>
-    <price>234.33</price>
+    <price>120.33</price>
     <articul>blah blah 1</articul>
 </good>
 </catalog>

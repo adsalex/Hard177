@@ -27,7 +27,7 @@ navig_sel.addEventListener("mouseout",nav_up)
 anc_color=mynav[0].children[0].style.color;;
 ////////////////////////
 if(page_name=="articles.html"){
-var articles= document.getElementsByTagName("article")
+let articles= document.getElementsByTagName("article")
 const MAX_HEIGHT = articles[0].style.maxHeight
 for(let art of articles)
 {  
@@ -55,11 +55,11 @@ function show_hide_art(handler){
 //console.log(page_name)
 if(page_name=="categories.html")
 {
-var parce=new DOMParser()
-var content="";
+let parce=new DOMParser()
+let content="";
 const filename="cats.xml"
-var catfile
-var request=new XMLHttpRequest()
+let catfile
+let request=new XMLHttpRequest()
 request.open("GET","cats.xml",true )
 request.send()
 request.onreadystatechange = function() 
@@ -67,15 +67,15 @@ request.onreadystatechange = function()
  if (request.readyState == 4 && request.status == 200) {
  catfile=request.responseXML
 console.log(request.responseXML)
-var xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
+let xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
 console.log(xmlcode)
-var rootxml=xmlcode.getElementsByTagName("catalog")[0]
+let rootxml=xmlcode.getElementsByTagName("catalog")[0]
 //console.log(rootxml)
 for(let elem=0; elem< rootxml.childElementCount;elem++)
 {
     //if(rootxml.childNodes[0].tag)
     content+=("<figure>"
-    +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'>"
+    +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'/>"
     +"<figcaption> <a href=goods.html#" +rootxml.getElementsByTagName("name")[elem].innerHTML + ">"
     +rootxml.getElementsByTagName("name")[elem].innerHTML
     +"</a> </figcaption>"
@@ -90,11 +90,11 @@ document.getElementsByClassName("content")[0].innerHTML=content
 //parce2 start
 if(page_name=="goods.html")
 {
-var parce=new DOMParser()
-var content="";
+let parce=new DOMParser()
+let content="";
 const filename=pageref.substring(pageref.lastIndexOf("#")+1,pageref.length)+".xml"
-var catfile
-var request=new XMLHttpRequest()
+let catfile
+let request=new XMLHttpRequest()
 request.open("GET",filename,true )
 request.send()
 request.onreadystatechange = function() 
@@ -102,15 +102,15 @@ request.onreadystatechange = function()
  if (request.readyState == 4 && request.status == 200) {
  catfile=request.responseXML
 console.log(request.responseXML)
-var xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
+let xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
 console.log(xmlcode)
-var rootxml=xmlcode.getElementsByTagName("catalog")[0]
+let rootxml=xmlcode.getElementsByTagName("catalog")[0]
 //console.log(rootxml)
 for(let elem=0; elem< rootxml.childElementCount;elem++)
 {
     //if(rootxml.childNodes[0].tag)
     content+=("<article class='goodbar'>"
-    +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'>"
+    +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'/>"
     +"<p>"+rootxml.getElementsByTagName("goodname")[elem].innerHTML+"</p>"
     +"<p>"+"$" +rootxml.getElementsByTagName("price")[elem].innerHTML+"</p>"
     +"<p>"+rootxml.getElementsByTagName("articul")[elem].innerHTML+"</p>"
@@ -138,7 +138,7 @@ let buff={}
 if((window.localStorage.getItem("cart_items"))){buff = JSON.parse(window.localStorage.getItem("cart_items"))}
 console.log(buff)
 let buff_obj=
-{   //photo
+{   
     goodname:catfile.getElementsByTagName("goodname")[elem].innerHTML,
     description:catfile.getElementsByTagName("description")[elem].innerHTML,
     articul:catfile.getElementsByTagName("articul")[elem].innerHTML,
@@ -158,7 +158,36 @@ console.log(JSON.parse(window.localStorage.getItem("cart_items")))
 ///parce2 end
 
 
-
+////cart part
+if(page_name=="cart.html")
+{
+    let totprice=0
+    let content_buff=""
+    let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
+    console.log(order_list)
+    for(let elem in order_list)
+    {
+        
+        content_buff+="<article class='goodbar'>"+ "<img alt='photo not found' src='"
+        +order_list[elem].photo+"'/>"+"<p>"+order_list[elem].goodname+"</p>"
+        +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
+        +"<div>"+order_list[elem].description+"</div>"
+        +"</article>"
+        totprice+=Number(order_list[elem].price)
+    }
+    content_buff+="<button id='order'> оформить заказ </button>"
+    +"<p> Итоговая цена "+totprice+"</p>"
+    +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p>"
+    document.getElementsByClassName("content")[0].innerHTML=content_buff
+    document.getElementById("order").addEventListener("click",confirm_order)
+    function confirm_order()
+    {
+    //let file= fopen("orders.json",3)
+    //fwrite(file,"test")
+    //fclose(file)
+    }
+}
+////cart end
 
 
 function nav_down(handler)
