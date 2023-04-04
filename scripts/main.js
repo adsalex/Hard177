@@ -53,7 +53,7 @@ function show_hide_art(handler){
 //////////////////////////
 
 //console.log(page_name)
-if(page_name=="index.html")
+if(page_name=="index.html" || page_name=="")
 {
 let parce=new DOMParser()
 let content="";
@@ -161,10 +161,36 @@ console.log(JSON.parse(window.localStorage.getItem("cart_items")))
 ////cart part
 if(page_name=="cart.html")
 {
-    let totprice=0
+
+    function updater()
+    {
+        let totprice=0
+        let content_buff=""
+        let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
+        
+        for(let elem in order_list)
+        {
+            
+            content_buff+="<article class='goodbar'>"+ "<img alt='photo not found' src='"
+            +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
+            +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
+            +"<div>"+order_list[elem].description+"</div>"
+            +"</div>"+"<input type='text' value=1 width=6em/>" 
+            +"<button OnClick=delete_item("+elem+")> удалить </button>"
+            +"</article>"
+            totprice+=Number(order_list[elem].price)
+        }
+    
+        content_buff+="<section> <button id='order'> оформить заказ </button>"
+        +"<p> Итоговая цена "+totprice+"</p>"
+        +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
+        document.getElementsByClassName("content")[0].innerHTML=content_buff
+    }
+
+ /*    let totprice=0
     let content_buff=""
     let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
-    console.log(order_list)
+    
     for(let elem in order_list)
     {
         
@@ -172,14 +198,17 @@ if(page_name=="cart.html")
         +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
         +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
         +"<div>"+order_list[elem].description+"</div>"
-        +"</div>" 
+        +"</div>"+"<input type='text' value=1 width=6em/>" 
+        +"<button OnClick=delete_item("+elem+")> удалить </button>"
         +"</article>"
         totprice+=Number(order_list[elem].price)
-    }/* */
+    }
+
     content_buff+="<section> <button id='order'> оформить заказ </button>"
     +"<p> Итоговая цена "+totprice+"</p>"
     +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
-    document.getElementsByClassName("content")[0].innerHTML=content_buff
+    document.getElementsByClassName("content")[0].innerHTML=content_buff*/
+    updater()
     document.getElementById("order").addEventListener("click",confirm_order)
     function confirm_order()
     {
@@ -190,6 +219,14 @@ if(page_name=="cart.html")
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
         request.send("{'hello':66}")
+    }
+    function delete_item(elem)
+    {
+        let buffer_delet=JSON.parse(window.localStorage.getItem("cart_items")) 
+        delete buffer_delet[elem]
+        window.localStorage.setItem("cart_items",JSON.stringify(buffer_delet))
+        updater()
+        
     }
 }
 ////cart end
