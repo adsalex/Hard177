@@ -169,22 +169,27 @@ if(page_name=="cart.html")
     {
         
         content_buff+="<article class='goodbar'>"+ "<img alt='photo not found' src='"
-        +order_list[elem].photo+"'/>"+"<p>"+order_list[elem].goodname+"</p>"
+        +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
         +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
         +"<div>"+order_list[elem].description+"</div>"
+        +"</div>" 
         +"</article>"
         totprice+=Number(order_list[elem].price)
-    }
-    content_buff+="<button id='order'> оформить заказ </button>"
+    }/* */
+    content_buff+="<section> <button id='order'> оформить заказ </button>"
     +"<p> Итоговая цена "+totprice+"</p>"
-    +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p>"
+    +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
     document.getElementsByClassName("content")[0].innerHTML=content_buff
     document.getElementById("order").addEventListener("click",confirm_order)
     function confirm_order()
     {
-    //let file= fopen("orders.json",3)
-    //fwrite(file,"test")
-    //fclose(file)
+        let filename="orders.json"
+        let request= new XMLHttpRequest()
+        request.open("POST","//localhost:5500/pages/node_back",true )
+        request.setRequestHeader('Content-Type', 'application/json')
+        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+
+        request.send("{'hello':66}")
     }
 }
 ////cart end
