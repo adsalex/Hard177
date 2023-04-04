@@ -53,7 +53,7 @@ function show_hide_art(handler){
 //////////////////////////
 
 //console.log(page_name)
-if(page_name=="categories.html")
+if(page_name=="index.html")
 {
 let parce=new DOMParser()
 let content="";
