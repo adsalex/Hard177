@@ -82,16 +82,16 @@ header div:first-of-type {
   display: flex;
   justify-content: flex-start;
 }
-header div:first-of-type > img {
-  margin-left: 2em;
+header div:first-of-type > img, header a {
+  padding-left: 2em;
 }
 header div:last-of-type {
   flex: 1;
   display: flex;
   justify-content: flex-end;
 }
-header div:last-of-type > img {
-  margin-right: 2em;
+header div:last-of-type > img, header a {
+  padding-right: 2em;
 }
 
 img {

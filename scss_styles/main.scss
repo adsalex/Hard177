@@ -27,9 +27,9 @@ header{
     top:0;
     *{height: 100%;}
     div:first-of-type{flex: 3;display: flex;justify-content: flex-start;}
-    div:first-of-type>img{margin-left: 2em;}
+    div:first-of-type>img,a{padding-left: 2em;}
     div:last-of-type{flex: 1;display: flex;justify-content: flex-end;}
-    div:last-of-type>img{margin-right: 2em;}
+    div:last-of-type>img,a{padding-right: 2em;}
 }
 
 

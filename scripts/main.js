@@ -167,7 +167,8 @@ if(page_name=="cart.html")
         let totprice=0
         let content_buff=""
         let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
-        
+        let count_holders
+
         for(let elem in order_list)
         {
             
@@ -175,39 +176,18 @@ if(page_name=="cart.html")
             +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
             +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
             +"<div>"+order_list[elem].description+"</div>"
-            +"</div>"+"<input type='text' value=1 width=6em/>" 
+            +"</div>"+"<input type='text' class='count' onchange='update_count("+order_list[elem].count+","+elem+")' value="+order_list[elem].count+" width=6em/>" 
             +"<button OnClick=delete_item("+elem+")> удалить </button>"
             +"</article>"
-            totprice+=Number(order_list[elem].price)
+            totprice+=Number(order_list[elem].price)*order_list[elem].count
         }
-    
+        
         content_buff+="<section> <button id='order'> оформить заказ </button>"
         +"<p> Итоговая цена "+totprice+"</p>"
         +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
         document.getElementsByClassName("content")[0].innerHTML=content_buff
     }
 
- /*    let totprice=0
-    let content_buff=""
-    let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
-    
-    for(let elem in order_list)
-    {
-        
-        content_buff+="<article class='goodbar'>"+ "<img alt='photo not found' src='"
-        +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
-        +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
-        +"<div>"+order_list[elem].description+"</div>"
-        +"</div>"+"<input type='text' value=1 width=6em/>" 
-        +"<button OnClick=delete_item("+elem+")> удалить </button>"
-        +"</article>"
-        totprice+=Number(order_list[elem].price)
-    }
-
-    content_buff+="<section> <button id='order'> оформить заказ </button>"
-    +"<p> Итоговая цена "+totprice+"</p>"
-    +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
-    document.getElementsByClassName("content")[0].innerHTML=content_buff*/
     updater()
     document.getElementById("order").addEventListener("click",confirm_order)
     function confirm_order()
@@ -227,6 +207,15 @@ if(page_name=="cart.html")
         window.localStorage.setItem("cart_items",JSON.stringify(buffer_delet))
         updater()
         
+    }
+    function update_count(value,pos)
+    {
+        let buffer_mod=JSON.parse(window.localStorage.getItem("cart_items")) 
+        
+        buffer_mod[pos].count=value
+        window.localStorage.setItem("cart_items",JSON.stringify(buffer_mod))
+        console.log(buffer_mod)
+        //updater()
     }
 }
 ////cart end

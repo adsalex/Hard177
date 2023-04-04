@@ -72,7 +72,7 @@ header div:first-of-type {
   display: flex;
   justify-content: flex-start;
 }
-header div:first-of-type > img {
+header div:first-of-type > img, header a {
   padding-left: 2em;
 }
 header div:last-of-type {
@@ -80,7 +80,7 @@ header div:last-of-type {
   display: flex;
   justify-content: flex-end;
 }
-header div:last-of-type > img {
+header div:last-of-type > img, header a {
   padding-right: 2em;
 }
 
