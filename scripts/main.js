@@ -225,6 +225,8 @@ if(page_name=="cart.html")
 
         request.send(JSON.stringify(window.localStorage.getItem("cart_items")))
         window.localStorage.setItem("cart_items")="{ }"
+        document.getElementsByClassName("content")[0].innerHTML ="<section><p>ваш заказ отправлен,"
+        +"наш менеджер созвонится с вами в ближашее время </p></section>"
     }
     function delete_item(elem)
     {
@@ -291,5 +293,3 @@ function open_close(handler)
     }
     menutrig=!menutrig
 }
-
-
