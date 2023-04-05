@@ -2,14 +2,17 @@
 <catalog>
 <categ>
     <name>cpus</name>
+    <realname>процессоры</realname>
     <photo>../resources/burger.svg</photo>
 </categ>
 <categ>
     <name>laptops</name>
+    <realname>ноутбуки</realname>
     <photo>../resources/cart.svg</photo>
 </categ>
 <categ>
-    <name>laptops</name>
+    <name>gpus</name>
+    <realname>видеокарты</realname>
     <photo>../resources/burger.svg</photo>
 </categ>
 </catalog>
