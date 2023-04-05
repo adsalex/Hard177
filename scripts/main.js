@@ -77,7 +77,7 @@ for(let elem=0; elem< rootxml.childElementCount;elem++)
     content+=("<figure>"
     +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'/>"
     +"<figcaption> <a href=goods.html#" +rootxml.getElementsByTagName("name")[elem].innerHTML + ">"
-    +rootxml.getElementsByTagName("name")[elem].innerHTML
+    +rootxml.getElementsByTagName("realname")[elem].innerHTML
     +"</a> </figcaption>"
     +"</figure>")
 }
@@ -180,7 +180,14 @@ if(page_name=="cart.html")
         let content_buff=""
         let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
         let count_holders
-
+        
+        if(Object.keys(order_list).length==0)
+        {
+            content_buff="<section> <p>Увы, ваша корзина пуста, положите товар в корзину </p> </section>"
+            console.log(33)
+            document.getElementsByClassName("content")[0].innerHTML=content_buff
+            return
+        }
         for(let elem in order_list)
         {
             
@@ -217,6 +224,7 @@ if(page_name=="cart.html")
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
         request.send(JSON.stringify(window.localStorage.getItem("cart_items")))
+        window.localStorage.setItem("cart_items")="{ }"
     }
     function delete_item(elem)
     {
