@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<catalog>
+<good>
+    <goodname>Видеокарта palit geforce 3060</goodname>
+    <photo>../resources/goods/palit3060.jpeg</photo>
+    <description>производитель чипа:nvidia<br/>Объем видеопамяти:12гб <br/>чип:geforce 3060 <br/>tdp:180вт </description>
+    <price>420.00</price>
+    <articul>2230601100</articul>
+</good>
+
+<good>
+    <goodname>Видеокарта palit geforce 1650</goodname>
+    <photo>../resources/goods/palit1650.jpeg</photo>
+    <description>производитель чипа:nvidia<br/>Объем видеопамяти:4гб <br/>чип:geforce 1650 <br/>tdp:60вт </description>
+    <price>210.00</price>
+    <articul>2216501100</articul>
+</good>
+
+<good>
+    <goodname>Видеокарта msi geforce 3050</goodname>
+    <photo>../resources/goods/msi3050.jpeg</photo>
+    <description>производитель чипа:nvidia<br/>Объем видеопамяти:8гб <br/>чип:geforce 3050 <br/>tdp:130вт </description>
+    <price>320.00</price>
+    <articul>2230501100</articul>
+</good>
+
+</catalog>

@@ -3,16 +3,21 @@
 <categ>
     <name>cpus</name>
     <realname>процессоры</realname>
-    <photo>../resources/burger.svg</photo>
+    <photo>../resources/goods/i5.png</photo>
 </categ>
 <categ>
-    <name>laptops</name>
-    <realname>ноутбуки</realname>
-    <photo>../resources/cart.svg</photo>
+    <name>mboard</name>
+    <realname>материнские платы</realname>
+    <photo>../resources/goods/gig_aou_550.jpeg</photo>
 </categ>
 <categ>
-    <name>gpus</name>
+    <name>graphcards</name>
     <realname>видеокарты</realname>
-    <photo>../resources/burger.svg</photo>
+    <photo>../resources/goods/palit3060.jpeg</photo>
+</categ>
+<categ>
+    <name>ram</name>
+    <realname>ОЗУ</realname>
+    <photo>../resources/goods/patriot.jpeg</photo>
 </categ>
 </catalog>

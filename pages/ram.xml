@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<catalog>
+<good>
+    <goodname>ОЗУ patriot ddr5 4800mghz</goodname>
+    <photo>../resources/goods/patriot.jpeg</photo>
+    <description>объем:8гб <br/> частота:4800мгц <br/>тип памяти:ddr5</description>
+    <price>35.25</price>
+    <articul>1181212</articul>
+</good>
+<good>
+    <goodname>ОЗУ kingston fury beast ddr5 4800mghz</goodname>
+    <photo>../resources/goods/fury_beast.jpeg</photo>
+    <description>объем:16гб <br/> частота:4800мгц <br/>тип памяти:ddr5</description>
+    <price>90.60</price>
+    <articul>1181213</articul>
+</good>
+<good>
+    <goodname>ОЗУ netac ddr5 4800mghz</goodname>
+    <photo>../resources/goods/netac.jpeg</photo>
+    <description>объем:8гб <br/> частота:4800мгц <br/>тип памяти:ddr5</description>
+    <price>42.20</price>
+    <articul>1181214</articul>
+</good>
+
+
+
+</catalog>

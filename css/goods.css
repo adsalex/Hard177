@@ -167,7 +167,6 @@ footer li[class] {
 }
 
 article > img, article > figure {
-  float: left;
   margin: 0.5em 1em 0.5em 0.5em;
 }
 
@@ -199,9 +198,8 @@ main {
 /*categories only*/
 article { /*width: 48%;*/ }
 article img {
-  max-width: 50vw;
-  height: 50vh;
-  float: left;
+  width: 45vw;
+  height: auto;
 }
 article div {
   padding-left: 0.6rem;

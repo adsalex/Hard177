@@ -60,7 +60,7 @@ footer
     .vk{background-image: url("../resources/vk-black.png");}
     .youtube{background-image: url("../resources/youtube-black.png");}
     .hide_but{color: green;}
-    article>img,article>figure{float: left;margin:0.5em 1em 0.5em 0.5em;}
+    article>img,article>figure{margin:0.5em 1em 0.5em 0.5em;}
     figcaption{text-align: center;font-family: Arial, Helvetica, sans-serif;}
 a{
    
@@ -74,7 +74,7 @@ main{flex: 1;}
 /*categories only*/
 figure>*{display: block;}
 
-figure img{max-width:40vw;height: 40vh;margin-left: auto;margin-right: auto;}
+figure img{width:30vw;height: auto;margin-left: auto;margin-right: auto;}
 figcaption{text-align: center;font-family: Arial, Helvetica, sans-serif;font-size: 1.4em;}
 /*9.5em*/
 /*articles only ends*/

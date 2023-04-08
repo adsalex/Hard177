@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<catalog>
+<good>
+    <goodname>asrock b760 pro</goodname>
+    <photo>../resources/goods/asrock_b760.jpeg</photo>
+    <description>чипсет b760 <br/> поддерживаемая озу:ddr5 <br/>сокет:LGA1700</description>
+    <price>265.00</price>
+    <articul>71222222</articul>
+</good>
+
+<good>
+    <goodname>asrock b660 pro</goodname>
+    <photo>../resources/goods/asrock_pro_b660.jpeg</photo>
+    <description>чипсет b660 <br/> поддерживаемая озу:ddr5 <br/>сокет:LGA1700</description>
+    <price>150.00</price>
+    <articul>71222233</articul>
+</good>
+
+<good>
+    <goodname>gigabyte aourus b550</goodname>
+    <photo>../resources/goods/gig_aou_550.jpeg</photo>
+    <description>чипсет b550 <br/> поддерживаемая озу:ddr4 <br/>сокет:am4</description>
+    <price>280.00</price>
+    <articul>71222244</articul>
+</good>
+
+</catalog>
