@@ -114,7 +114,7 @@ for(let elem=0; elem< rootxml.childElementCount;elem++)
     +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'/>"
     +"<p>"+rootxml.getElementsByTagName("goodname")[elem].innerHTML+"</p>"
     +"<p>"+"$" +rootxml.getElementsByTagName("price")[elem].innerHTML+"</p>"
-    +"<p>"+rootxml.getElementsByTagName("articul")[elem].innerHTML+"</p>"
+    +"<p> артикул: "+rootxml.getElementsByTagName("articul")[elem].innerHTML+"</p>"
     +"<div>"+rootxml.getElementsByTagName("description")[elem].innerHTML+"</div>"
     +"<button value="+articul_buffer+" class='addbutton' "+">добавить в корзину </button>"
     +"</article>")
@@ -193,7 +193,7 @@ if(page_name=="cart.html")
             
             content_buff+="<article class='goodbar'>"+ "<img alt='photo not found' src='"
             +order_list[elem].photo+"'/> "+"<div class='texthold'>"+"<p>"+order_list[elem].goodname+"</p>"
-            +"<p>"+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
+            +"<p>артикул: "+order_list[elem].articul+"</p>"+"<p>$"+order_list[elem].price+"</p>"
             +"<div>"+order_list[elem].description+"</div>"
             +"</div>"+"<input type='text' class='count' value="+order_list[elem].count+" width=6em/>" 
             +"<button OnClick=delete_item("+elem+")> удалить </button>"

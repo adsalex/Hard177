@@ -60,6 +60,9 @@
     font-size: 3rem;
     padding: 1rem;
   }
+  figure {
+    margin-bottom: 2em;
+  }
 }
 * {
   margin: 0;
