@@ -102,10 +102,9 @@ request.onreadystatechange = function()
  if (request.readyState == 4 && request.status == 200) {
  catfile=request.responseXML
 console.log(request.responseXML)
-let xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
+let xmlcode=catfile
 console.log(xmlcode)
 let rootxml=xmlcode.getElementsByTagName("catalog")[0]
-//console.log(rootxml)
 for(let elem=0; elem< rootxml.childElementCount;elem++)
 {
     let articul_buffer=rootxml.getElementsByTagName("articul")[elem].innerHTML
@@ -134,16 +133,11 @@ if(window.localStorage.getItem("cart_items")==null)
 window.localStorage.setItem("cart_items",[])
 }
 
-
-
 function addtocart(handler)
 {
 
 let elem=0
 
-
-
-//alert("helll")
 let buff={}
 if((window.localStorage.getItem("cart_items"))){buff = JSON.parse(window.localStorage.getItem("cart_items"))}
 
@@ -202,17 +196,18 @@ if(page_name=="cart.html")
         }
 
         content_buff+="<section> <button id='order'> оформить заказ </button>"
+        +"<button id='cartclear'>очистить корзину</button>"
         +"<p> Итоговая цена $<span id='price_show'>"+totprice+"</span></p>"
         +"<p> Телефон "+"<input type='text' id='phone'/>"+"</p> </section>"
         document.getElementsByClassName("content")[0].innerHTML=content_buff
         count_holders = document.getElementsByClassName("count")
         let index_counter=0
-        
+        document.getElementById("cartclear").addEventListener("click",clearcart)
         //for(let prop in buff ){if(buff[prop].articul==handler.target.value){break};elem++}
         for(let elem of count_holders){const buffer=index_counter;elem.addEventListener("change",(handler)=>{update_count(handler,buffer)});index_counter++;}
         
     }
-
+   
     updater()
     document.getElementById("order").addEventListener("click",confirm_order)
     function confirm_order()
@@ -235,6 +230,11 @@ if(page_name=="cart.html")
         window.localStorage.setItem("cart_items",JSON.stringify(buffer_delet))
         updater()
         
+    }
+    function clearcart()
+    {
+        window.localStorage.setItem("cart_items","{}")
+        updater()
     }
     function update_count(handler,pos)
     {
