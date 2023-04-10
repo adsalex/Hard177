@@ -209,7 +209,9 @@ if(page_name=="cart.html")
     }
    
     updater()
+    if(document.getElementById("order"))
     document.getElementById("order").addEventListener("click",confirm_order)
+
     function confirm_order()
     {
         let filename="orders.json"
