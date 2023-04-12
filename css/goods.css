@@ -200,7 +200,9 @@ main {
 }
 
 /*categories only*/
-article { /*width: 48%;*/ }
+article { /*width: 48%;*/
+  align-self: flex-end;
+}
 article img {
   width: 30vw;
   height: auto;
