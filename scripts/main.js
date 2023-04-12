@@ -155,7 +155,6 @@ let buff_obj=
 
 buff[elem]=buff_obj
 console.log(buff)
-//buff.push(11)
 window.localStorage.setItem("cart_items",JSON.stringify(buff))
 console.log(JSON.parse(window.localStorage.getItem("cart_items")))
 }
