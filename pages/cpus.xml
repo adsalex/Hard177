@@ -15,7 +15,7 @@
     <articul>3114210</articul>
 </good>
 <good>
-    <goodname>процессор core i3 12700</goodname>
+    <goodname>процессор core i7 12700</goodname>
     <photo>../resources/goods/i7.png</photo>
     <description>кол-во ядер/потоков:4/4 <br/> частота:3.3-4.3 ггц <br/>сокет:LGA1700</description>
     <price>330.33</price>
@@ -35,7 +35,7 @@
     <photo>../resources/goods/ryzen.jpeg</photo>
     <description>кол-во ядер/потоков:8/16 <br/> частота:3.3-4.3 ггц <br/>сокет:am4</description>
     <price>320.40</price>
-    <articul>3116210</articul>
+    <articul>3116211</articul>
 </good>
 
 

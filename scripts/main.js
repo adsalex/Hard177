@@ -137,22 +137,28 @@ function addtocart(handler)
 {
 
 let elem=0
+let shiftcounter=0
 
 let buff={}
 if((window.localStorage.getItem("cart_items"))){buff = JSON.parse(window.localStorage.getItem("cart_items"))}
+console.log(buff)
+for(let prop in buff ){console.log(handler.target.value);  if(buff[prop].articul==handler.target.value){console.log("Yes");break;}elem++;}
 
-for(let prop in buff ){if(buff[prop].articul==handler.target.value){break};elem++}
+
+let shiftbuff = catfile.getElementsByTagName("articul"); 
+for(let prop2 in shiftbuff)
+{if(shiftbuff[prop2].innerHTML==handler.target.value){break} shiftcounter++}
 
 let buff_obj=
 {   
-    goodname:catfile.getElementsByTagName("goodname")[elem].innerHTML,
-    description:catfile.getElementsByTagName("description")[elem].innerHTML,
-    articul:catfile.getElementsByTagName("articul")[elem].innerHTML,
-    price:catfile.getElementsByTagName("price")[elem].innerHTML,
-    photo:catfile.getElementsByTagName("photo")[elem].innerHTML,
+    goodname:catfile.getElementsByTagName("goodname")[shiftcounter].innerHTML,
+    description:catfile.getElementsByTagName("description")[shiftcounter].innerHTML,
+    articul:catfile.getElementsByTagName("articul")[shiftcounter].innerHTML,
+    price:catfile.getElementsByTagName("price")[shiftcounter].innerHTML,
+    photo:catfile.getElementsByTagName("photo")[shiftcounter].innerHTML,
     count:1
 }
-
+//console.log(buff_obj)
 buff[elem]=buff_obj
 console.log(buff)
 window.localStorage.setItem("cart_items",JSON.stringify(buff))
@@ -213,13 +219,15 @@ if(page_name=="cart.html")
 
     function confirm_order()
     {
-        let filename="orders.json"
         let request= new XMLHttpRequest()
         request.open("POST","//localhost:5500/pages/node_back",true )
         request.setRequestHeader('Content-Type', 'application/json')
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
-        request.send(JSON.stringify(window.localStorage.getItem("cart_items")))
+        let sendbuff=JSON.parse(window.localStorage.getItem("cart_items"))
+        sendbuff["phone"]=document.getElementById("phone").value
+
+        request.send(JSON.stringify(sendbuff))
         window.localStorage.setItem("cart_items","{ }")
         document.getElementsByClassName("content")[0].innerHTML ="<section><p>ваш заказ отправлен,"
         +"наш менеджер созвонится с вами в ближашее время </p></section>"
@@ -246,9 +254,6 @@ if(page_name=="cart.html")
        
         let buffer_mod=JSON.parse(window.localStorage.getItem("cart_items")) 
 
-        /*for(let prop in buffer_mod ){if(index==pos){articul=prop;break};index++}
-
-        console.log(articul,pos)//*/
         console.log(pos)
         buffer_mod[pos].count=handler.target.value
         
