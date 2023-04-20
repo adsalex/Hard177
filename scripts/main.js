@@ -2,8 +2,8 @@
 
 var menutrig=false
 var anc_color=null;
-var cross="../resources/cross.svg"
-var burger="../resources/burger.svg"
+const cross="../resources/cross.svg"
+const burger="../resources/burger.svg"
 const new_anc_color="rgb(255, 165, 0)"
 var mynav =document.getElementsByTagName("nav")
 var menu_button=document.getElementById("menu_button")
@@ -24,7 +24,7 @@ for(let navig_sel of mynav)
 navig_sel.addEventListener("mouseover",nav_down)
 navig_sel.addEventListener("mouseout",nav_up)
 }
-anc_color=mynav[0].children[0].style.color;;
+anc_color=mynav[0].children[0].style.color;
 ////////////////////////
 if(page_name=="articles.html"){
 let articles= document.getElementsByTagName("article")
@@ -294,7 +294,6 @@ function open_close(handler)
     else
     {
         mynav[0].style.display="flex"
-        mynav[0].style.position="flex"
         handler.target.src=cross
     }
     menutrig=!menutrig
