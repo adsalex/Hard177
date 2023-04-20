@@ -142,9 +142,21 @@ let shiftcounter=0
 let buff={}
 if((window.localStorage.getItem("cart_items"))){buff = JSON.parse(window.localStorage.getItem("cart_items"))}
 console.log(buff)
-for(let prop in buff ){console.log(handler.target.value);  if(buff[prop].articul==handler.target.value){console.log("Yes");break;}elem++;}
+let swtrig=false
 
+for(let prop in buff ){ if(buff[prop].articul==handler.target.value){elem=prop;swtrig=true;break;}; elem++; console.log(buff[prop]); }
+console.log(swtrig)
+console.log(elem)
 
+if(!swtrig){
+console.log(swtrig)
+elem=0
+for(let prop =0;prop<Object.keys(buff).length ;prop++ ){if(!buff[prop]){break}; if(buff[prop].articul==handler.target.value){break;};  elem++; }
+}
+
+console.log(elem)
+
+console.log(elem)
 let shiftbuff = catfile.getElementsByTagName("articul"); 
 for(let prop2 in shiftbuff)
 {if(shiftbuff[prop2].innerHTML==handler.target.value){break} shiftcounter++}
