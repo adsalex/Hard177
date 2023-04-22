@@ -16,7 +16,6 @@ if(pageref.includes("#"))
 }
 else{page_name=pageref.substring(pageref.lastIndexOf("/")+1,pageref.length)}
 
-console.log(pageref)
 menu_button.addEventListener("click",open_close)
 
 for(let navig_sel of mynav)
@@ -52,7 +51,6 @@ function show_hide_art(handler){
 }
 //////////////////////////
 
-//console.log(page_name)
 if(page_name=="index.html" || page_name=="")
 {
 let parce=new DOMParser()
@@ -66,11 +64,11 @@ request.onreadystatechange = function()
 {
  if (request.readyState == 4 && request.status == 200) {
  catfile=request.responseXML
-console.log(request.responseXML)
+
 let xmlcode=catfile//parce.parseFromString(catfile,'text/xml')
-console.log(xmlcode)
+
 let rootxml=xmlcode.getElementsByTagName("catalog")[0]
-//console.log(rootxml)
+
 for(let elem=0; elem< rootxml.childElementCount;elem++)
 {
     //if(rootxml.childNodes[0].tag)
@@ -101,14 +99,11 @@ request.onreadystatechange = function()
 {
  if (request.readyState == 4 && request.status == 200) {
  catfile=request.responseXML
-console.log(request.responseXML)
 let xmlcode=catfile
-console.log(xmlcode)
 let rootxml=xmlcode.getElementsByTagName("catalog")[0]
 for(let elem=0; elem< rootxml.childElementCount;elem++)
 {
     let articul_buffer=rootxml.getElementsByTagName("articul")[elem].innerHTML
-    console.log(rootxml.getElementsByTagName("articul")[elem].innerHTML)
     content+=("<article class='goodbar'>"
     +"<img alt='photo not found' src='"+rootxml.getElementsByTagName("photo")[elem].innerHTML  +"'/>"
     +"<p>"+rootxml.getElementsByTagName("goodname")[elem].innerHTML+"</p>"
@@ -118,7 +113,6 @@ for(let elem=0; elem< rootxml.childElementCount;elem++)
     +"<button value="+articul_buffer+" class='addbutton' "+">добавить в корзину </button>"
     +"</article>")
 }
-console.log(rootxml.getElementsByTagName("articul")[0].innerHTML)
 document.getElementsByClassName("content")[0].innerHTML=content
 
 for(let button of document.getElementsByClassName("addbutton"))
@@ -141,22 +135,15 @@ let shiftcounter=0
 
 let buff={}
 if((window.localStorage.getItem("cart_items"))){buff = JSON.parse(window.localStorage.getItem("cart_items"))}
-console.log(buff)
 let swtrig=false
 
-for(let prop in buff ){ if(buff[prop].articul==handler.target.value){elem=prop;swtrig=true;break;}; elem++; console.log(buff[prop]); }
-console.log(swtrig)
-console.log(elem)
+for(let prop in buff ){ if(buff[prop].articul==handler.target.value){elem=prop;swtrig=true;break;}; elem++; }
 
 if(!swtrig){
-console.log(swtrig)
 elem=0
 for(let prop =0;prop<Object.keys(buff).length ;prop++ ){if(!buff[prop]){break}; if(buff[prop].articul==handler.target.value){break;};  elem++; }
 }
 
-console.log(elem)
-
-console.log(elem)
 let shiftbuff = catfile.getElementsByTagName("articul"); 
 for(let prop2 in shiftbuff)
 {if(shiftbuff[prop2].innerHTML==handler.target.value){break} shiftcounter++}
@@ -170,11 +157,9 @@ let buff_obj=
     photo:catfile.getElementsByTagName("photo")[shiftcounter].innerHTML,
     count:1
 }
-//console.log(buff_obj)
+
 buff[elem]=buff_obj
-console.log(buff)
 window.localStorage.setItem("cart_items",JSON.stringify(buff))
-console.log(JSON.parse(window.localStorage.getItem("cart_items")))
 }
 
 }
@@ -195,7 +180,6 @@ if(page_name=="cart.html")
         if(Object.keys(order_list).length==0)
         {
             content_buff="<section> <p>Увы, ваша корзина пуста, положите товар в корзину </p> </section>"
-            console.log(33)
             document.getElementsByClassName("content")[0].innerHTML=content_buff
             return
         }
@@ -266,13 +250,11 @@ if(page_name=="cart.html")
        
         let buffer_mod=JSON.parse(window.localStorage.getItem("cart_items")) 
 
-        console.log(pos)
         buffer_mod[pos].count=handler.target.value
         
 
         //price count ends
         window.localStorage.setItem("cart_items",JSON.stringify(buffer_mod))
-        console.log(buffer_mod)
         let total_price_changed=0
         let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
         for(let price_elem in order_list)
