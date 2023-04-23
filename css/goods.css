@@ -56,7 +56,7 @@
     justify-content: space-evenly;
   }
   nav > a {
-    font-size: 3rem;
+    font-size: 2.307rem;
     padding: 1rem;
   }
   article {
@@ -109,7 +109,6 @@ nav > a {
   display: block;
   flex: 1;
   text-align: center;
-  font-size: 1.4rem;
 }
 
 #main_page_button {
@@ -134,11 +133,9 @@ footer div {
   margin: 0 1% 0 1%;
   height: 100%;
 }
-
 footer li {
   list-style: none;
 }
-
 footer li[class] {
   text-indent: 1.2em;
   background-repeat: no-repeat;

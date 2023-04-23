@@ -49,6 +49,7 @@
   }
   nav > a {
     font-size: 2rem;
+    padding: 1rem;
   }
 }
 * {
@@ -119,11 +120,9 @@ footer div {
   margin: 0 1% 0 1%;
   height: 100%;
 }
-
 footer li {
   list-style: none;
 }
-
 footer li[class] {
   text-indent: 1.2em;
   background-repeat: no-repeat;

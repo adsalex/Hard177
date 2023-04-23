@@ -18,7 +18,7 @@ $second_color:rgb(12, 126, 120);
     main{display: flex;flex-direction: column;}
     *{font-size: 1.3rem;}
     nav{width: 100%;height: 80vh;background-color: rgb(12, 126, 120);display: flex;flex-direction: column;justify-content: space-evenly ; ;}
-    nav>a{font-size: 3rem;padding: 1rem;}
+    nav>a{font-size: 2.307rem;padding: 1rem;}
     article{margin-bottom: 2em;margin-left: 0.7em;}
 }
 
@@ -41,7 +41,7 @@ img{height: 100%;}
 
 
 main>*{margin-top:3vh;}
-nav>a{display: block;flex: 1;text-align: center;font-size: 1.4rem;}
+nav>a{display: block;flex: 1;text-align: center;}
 #main_page_button{justify-self: flex-start;}
 nav{display: none;}
 
@@ -52,10 +52,11 @@ footer
     width: 100%;min-height: 7vh;display: flex;justify-content: space-between;width: 100%;padding-bottom: 1%;
     background-color: lightgray;margin-top: 1%;
     div{margin: 0 1% 0 1%;height: 100%;}
+    li{list-style: none;}
+    li[class]{text-indent: 1.2em;background-repeat: no-repeat;background-size: 1em;background-position:  0 center;}
+   
 }
    
-    footer li{list-style: none;}
-    footer li[class]{text-indent: 1.2em;background-repeat: no-repeat;background-size: 1em;background-position:  0 center;}
     .github{background-image: url("../resources/github.png");}
     .facebook{background-image: url("../resources/Facebook_Black.png");}
     .telegram{background-image: url("../resources/telegram-black.png");}

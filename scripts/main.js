@@ -88,7 +88,6 @@ document.getElementsByClassName("content")[0].innerHTML=content
 //parce2 start
 if(page_name=="goods.html")
 {
-let parce=new DOMParser()
 let content="";
 const filename=pageref.substring(pageref.lastIndexOf("#")+1,pageref.length)+".xml"
 let catfile
