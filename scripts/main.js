@@ -116,8 +116,6 @@ if(window.localStorage.getItem("cart_items")==null)
 window.localStorage.setItem("cart_items",[])
 }
 
-
-
 }
 ///parce2 end
 
