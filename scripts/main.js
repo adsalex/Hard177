@@ -167,49 +167,46 @@ window.localStorage.setItem("cart_items",JSON.stringify(buff))
 }
 
 function confirm_order()
-    {
-        let request= new XMLHttpRequest()
-        request.open("POST","//localhost:5500/pages/node_back",true )
-        request.setRequestHeader('Content-Type', 'application/json')
-        request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+{
+    let request= new XMLHttpRequest()
+    request.open("POST","//localhost:5500/pages/node_back",true )
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
-        let sendbuff=JSON.parse(window.localStorage.getItem("cart_items"))
-        sendbuff["phone"]=document.getElementById("phone").value
+    let sendbuff=JSON.parse(window.localStorage.getItem("cart_items"))
+    sendbuff["phone"]=document.getElementById("phone").value
 
-        request.send(JSON.stringify(sendbuff))
-        window.localStorage.setItem("cart_items","{ }")
-        document.getElementsByClassName("content")[0].innerHTML ="<section><p>ваш заказ отправлен,"
-        +"наш менеджер созвонится с вами в ближашее время </p></section>"
-    }
-    function delete_item(elem)
-    {
-        let buffer_delet=JSON.parse(window.localStorage.getItem("cart_items")) 
-        delete buffer_delet[elem.target.value]
-        window.localStorage.setItem("cart_items",JSON.stringify(buffer_delet))
-        updater()
-    }
-    function clearcart()
-    {
-        window.localStorage.setItem("cart_items","{}")
-        updater()
-    }
+    request.send(JSON.stringify(sendbuff))
+    window.localStorage.setItem("cart_items","{ }")
+    document.getElementsByClassName("content")[0].innerHTML ="<section><p>ваш заказ отправлен,"
+    +"наш менеджер созвонится с вами в ближашее время </p></section>"
+}
+function delete_item(elem)
+{
+    let buffer_delet=JSON.parse(window.localStorage.getItem("cart_items")) 
+    delete buffer_delet[elem.target.value]
+    window.localStorage.setItem("cart_items",JSON.stringify(buffer_delet))
+    updater()
+}
+function clearcart()
+{
+    window.localStorage.setItem("cart_items","{}")
+    updater()
+}
 
 function update_count(handler,pos)
+{
+    let buffer_mod=JSON.parse(window.localStorage.getItem("cart_items")) 
+    buffer_mod[pos].count=handler.target.value
+    //price count ends
+    window.localStorage.setItem("cart_items",JSON.stringify(buffer_mod))
+    let total_price_changed=0
+    let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
+    for(let price_elem in order_list)
     {
-        let buffer_mod=JSON.parse(window.localStorage.getItem("cart_items")) 
-
-        buffer_mod[pos].count=handler.target.value
-        
-
-        //price count ends
-        window.localStorage.setItem("cart_items",JSON.stringify(buffer_mod))
-        let total_price_changed=0
-        let order_list=JSON.parse(window.localStorage.getItem("cart_items"))
-        for(let price_elem in order_list)
-        {
-            total_price_changed+=(Number(order_list[price_elem].price*order_list[price_elem].count))
-        }
-        document.getElementById("price_show").innerHTML=total_price_changed
+        total_price_changed+=(Number(order_list[price_elem].price*order_list[price_elem].count))
+    }
+    document.getElementById("price_show").innerHTML=total_price_changed
     }
     function updater()
     {
