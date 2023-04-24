@@ -10,6 +10,9 @@ var mynav =document.getElementsByTagName("nav")
 var menu_button=document.getElementById("menu_button")
 var pageref= window.location.href
 var page_name
+var articles
+var MAX_HEIGHT
+var hiders
 
 if(pageref.includes("#"))
 {
@@ -27,18 +30,18 @@ navig_sel.addEventListener("mouseout",nav_up)
 anc_color=mynav[0].children[0].style.color;
 ////////////////////////
 if(page_name=="articles.html"){
-let articles= document.getElementsByTagName("article")
-const MAX_HEIGHT = articles[0].style.maxHeight
+articles= document.getElementsByTagName("article")
+MAX_HEIGHT = articles[0].style.maxHeight
 for(let art of articles)
 {  
    art.insertAdjacentHTML("afterend",
    "<div class='hide_but'>скрыть/показать статью</div>")
 }
-let hiders=document.getElementsByClassName('hide_but')
+hiders=document.getElementsByClassName('hide_but')
 
 //hiders[0].style.color="red"
 for(let hider of hiders)
-{hider.addEventListener("mousedown",(handler)=>{ show_hide_art(handler,articles,hiders,MAX_HEIGHT) })}
+{hider.addEventListener("mousedown",show_hide_art)}
 
 
 }
@@ -270,9 +273,9 @@ function open_close(handler)
     menutrig=!menutrig
 }
 
-function show_hide_art(handler,articles_arg,hiders_arg,height){
-let show_hide_st = articles_arg[Array.from(hiders_arg).indexOf(handler.target)].style
-if(show_hide_st.maxHeight !=height){show_hide_st.maxHeight =height}
+function show_hide_art(handler){
+let show_hide_st = articles[Array.from(hiders).indexOf(handler.target)].style
+if(show_hide_st.maxHeight !=MAX_HEIGHT){show_hide_st.maxHeight =MAX_HEIGHT}
 else{show_hide_st.maxHeight ="none"}
 //даже если объявить сразу как массив
 //все равно нужно преобразование
